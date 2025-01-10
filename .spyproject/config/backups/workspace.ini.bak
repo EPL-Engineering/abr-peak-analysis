@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['Source\\notebook.py', 'Source\\datafile.py', 'Source\\datatype.py', 'Source\\abrpanel.py', 'Source\\WaveformPresenter.py', 'Source\\notebook.spec', 'Source\\frame.py', 'README.md']
+recent_files = ['Source\\notebook.py', 'Source\\datafile.py', 'Source\\datatype.py', 'Source\\abrpanel.py', 'Source\\WaveformPresenter.py', 'Source\\notebook.spec', 'Source\\frame.py', 'README.md', 'Source\\filter_EPL_LabVIEW_ABRIO_File.py', 'Source\\anecs_read.py']
 
 [main]
 version = 0.2.0

@@ -133,10 +133,10 @@ def save(model):
 
     noiseFloor = 0
     if model.useNoiseFloor:
-        header = 'Threshold (dB SPL): %r\nFrequency (kHz): %.2f\nNoise floor (uV): %.4f\n%s\n%s\n%s\n%s\n%s'
+        header = 'Threshold (dB SPL): %.2f\nFrequency (kHz): %.2f\nNoise floor (uV): %.4f\n%s\n%s\n%s\n%s\n%s'
         noiseFloor = model.noiseFloor
     else:
-        header = 'Threshold (dB SPL): %r\nFrequency (kHz): %.2f\n%s\n%s\n%s\n%s\n%s'
+        header = 'Threshold (dB SPL): %.2f\nFrequency (kHz): %.2f\n%s\n%s\n%s\n%s\n%s'
     
     fitMsg = construct_fit_message(model)
     mesg = 'NOTE: Negative latencies indicate no peak'
@@ -264,7 +264,7 @@ def filter_string(waveform):
     if waveform._zpk is None:
         return header + ' No filtering'
     else:
-        templ = 'Pass %d -- z: %r, p: %r, k: %r'
+        templ = 'Pass %d -- z: %r, p: %r, k: %.4f'
         filt = [templ % (i,z,p,k) for i,(z,p,k) in enumerate(waveform._zpk)]
         return header + '\n' + '\n'.join(filt)
 

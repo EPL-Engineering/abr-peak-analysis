@@ -1,8 +1,9 @@
 ## Changelog
 
-### unreleased
+### v1.10.1 (2025-01-10)
 #### Fixed 
 - fixed bug using **X** key to clear previous work
+- fixed formatting bug writing threshold to analysis file
 
 ---
 
