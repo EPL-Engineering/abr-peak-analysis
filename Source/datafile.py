@@ -79,6 +79,9 @@ def loadabr(fname, invert=False, filter=False, fdict=None, polarity=ABRStimPolar
             if data.startswith('[STANDARD ABR]'):
                 return load_comprehensive_cfts_data(fname, invert, filter, fdict)
 
+            if data.startswith('[FAST ABR]'):
+                return load_fast_abr_data(fname, invert, filter, fdict)
+
             header, data = data.split('DATA')
 
             levelstring = p_level.search(header).group(1).strip(';').split(';')
@@ -231,10 +234,91 @@ def load_comprehensive_cfts_data(fname, invert=False, filter=False, fdict=None, 
             
             waveShape = p_wav.search(header).group(1)
             
-            if waveShape is 'CLICK':
+            if waveShape == 'CLICK':
                 freq = 0
             else:
                 freq = float(p_freq.search(header).group(1))
+
+
+            dataType = ABRDataType.CFTS
+            varyMasker = False
+            
+            # Instantiate ABR series                    
+            series = abrseries(waveforms, freq, None, dataType, polarity, varyMasker)
+            series.compute_corrcoefs()
+            series.filename = fname
+            series.time = p_time.search(header).group(1)
+            series.Tmax = abr_window
+
+            if noiseFloor:
+                series.find_noise_floor(dataDiff)
+
+            return series
+
+    except (AttributeError, ValueError):
+        msg = 'Could not parse %s.  Most likely not a valid ABR file.' % fname
+        raise IOError(msg)
+                                 
+
+def load_fast_abr_data(fname, invert=False, filter=False, fdict=None, polarity=ABRStimPolarity.Avg, noiseFloor=False):
+
+    p_level = re.compile('Levels=([\-0-9.; Inf]+)')
+    p_fs = re.compile('Response.Fs \(Hz\)=([0-9.]+)')
+    p_win = re.compile('Response.Window \(ms\)=([0-9.]+)')
+    p_freq = re.compile('Frequency \(kHz\)=([0-9.]+)')
+    p_time = re.compile('Date=([\w\d/\s:]+)\n')
+
+    try:
+        with open(fname, encoding='latin-1') as f:
+            data = f.read()
+            
+            header, data = data.split('[DATA]')
+
+            levelstring = p_level.search(header).group(1).strip(';').split(';')
+            if levelstring[0] == " ":
+                levels = array([0], dtype='f')
+            else:
+                levels = array(levelstring).astype(float)
+
+            fs = float(p_fs.search(header).group(1))
+            abr_window = float(p_win.search(header).group(1))
+
+            data = data.split('\n', 2)
+            data = array(data[2].split()).astype(float)
+
+            ncol = len(levels) * 2 + 1
+            data = data.reshape(int(len(data) / ncol), ncol).T
+            
+            dataSum = data[1:len(levels)+1,:]
+            dataDiff = data[(len(levels) + 1):, :]
+            
+            # compute condensation and rarefaction traces from sum and difference
+            dataCond = dataSum + dataDiff
+            dataRare = dataSum - dataDiff            
+
+            # select the stimulus polarity specified by the user
+            if polarity == ABRStimPolarity.Avg:
+                data = dataSum;
+            if polarity == ABRStimPolarity.Condensation:
+                data = dataCond
+            if polarity == ABRStimPolarity.Rarefaction:
+                data = dataRare
+            
+            if invert:
+                data = -data
+
+            waveforms = [abrwaveform(fs, w, l) for w, l in zip(data, levels)]
+
+            # Checks for an ABR I-O bug that sometimes saves zeroed waveforms
+            # Also excludes controls
+            for w in waveforms[:]:
+                if (w.y==0).all():
+                    waveforms.remove(w)
+
+            if filter:
+                waveforms = [w.filtered(**fdict) for w in waveforms]
+            
+            freq = float(p_freq.search(header).group(1))
 
 
             dataType = ABRDataType.CFTS

@@ -346,7 +346,7 @@ class PhysiologyFrame(PersistentFrame):
     def OnAbout(self, evt):
         info = wx.adv.AboutDialogInfo()
         info.Name = "ABR Peak Analysis"
-        info.Version = "1.10.0"
+        info.Version = "1.11.0"
         info.Copyright = "(C) 2007 Speech and Hearing Bioscience and Technology"
 #        info.WebSite = "http://web.mit.edu/shbt"
         info.Developers = ["Brad Buran"]
