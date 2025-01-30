@@ -229,7 +229,7 @@ class Sequence:
 
     vals = None
 
-    def fromBytes(self, bytes, index):
+    def fromBytes(self, bytes, index, fileFormat):
         index = parseIndicator(bytes, index, 'Sequence')
 
         self.channels, index = parseString(bytes, index)
@@ -252,7 +252,8 @@ class Sequence:
         self.oddballFract, index = parseFloat32(bytes, index)
         self.standardValue, index = parseInt32(bytes, index)
         
-        dummy, index = parseString(bytes, index)
+        if fileFormat > 50:
+            dummy, index = parseString(bytes, index)
         
         n, index = parseInt32(bytes, index)
         if n > 0:
@@ -389,8 +390,8 @@ class ANECS(object):
             index = self.info.fromBytes(data, index)
             index = self.equip.fromBytes(data, index)
             index = self.stim.fromBytes(data, index, self.equip.numStimChan)
-            index = self.inner.fromBytes(data, index)
-            index = self.outer.fromBytes(data, index)
+            index = self.inner.fromBytes(data, index, self.info.revision)
+            index = self.outer.fromBytes(data, index, self.info.revision)
             index = self.scl.fromBytes(data, index)
             index = self.resp.fromBytes(data, index)
 
