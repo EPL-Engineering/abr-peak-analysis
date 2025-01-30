@@ -1,8 +1,10 @@
 ## Changelog
 
-### v1.11 (unreleased)
+### v1.11 (2025-01-30)
 #### Added
 - support for Fast ABR data files
+#### Fixed
+- error reading in older ANECS data
 
 ---
 

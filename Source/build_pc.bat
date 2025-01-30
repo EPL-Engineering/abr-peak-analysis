@@ -1,4 +1,5 @@
 :: C:\ProgramData\miniforge3\condabin\activate.bat
+:: C:\Users\kehan\miniforge3\condabin\activate.bat
 :: conda activate abr
 pyinstaller --noconfirm notebook.spec
 "D:\Development\3rd Party\verpatch\verpatch.exe" .\dist\notebook\notebook.exe 1.11.0.0 /va

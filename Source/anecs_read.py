@@ -252,7 +252,7 @@ class Sequence:
         self.oddballFract, index = parseFloat32(bytes, index)
         self.standardValue, index = parseInt32(bytes, index)
         
-        if fileFormat > 50:
+        if fileFormat > 40:
             dummy, index = parseString(bytes, index)
         
         n, index = parseInt32(bytes, index)
