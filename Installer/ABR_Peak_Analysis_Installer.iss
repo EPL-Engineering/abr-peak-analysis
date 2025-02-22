@@ -27,7 +27,7 @@ OutputBaseFilename={#installerName}
 UsePreviousAppDir=no
 UsePreviousGroup=no
 DisableProgramGroupPage=yes
-PrivilegesRequired=lowest
+PrivilegesRequired=admin
 
 [Files]
 Source: "..\Source\dist\notebook\*.*"; DestDir: "{app}"; Excludes: "*.dll.c~,\mpl-data\fonts,\mpl-data\sample_data"; Flags: replacesameversion

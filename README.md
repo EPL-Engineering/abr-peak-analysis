@@ -10,8 +10,8 @@ Minimal Python environment:
 ```
 conda create -n abr python=3.9.12
 conda activate abr
-conda install -c conda_forge nomkl numpy scipy matplotlib wxPython
-conda install -c conda_forge numpy==2.0.2
+conda install -c conda-forge nomkl numpy scipy matplotlib wxPython
+conda install -c conda-forge numpy==2.0.2
 conda install spyder
 conda install pyinstaller
 ```
