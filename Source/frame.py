@@ -59,16 +59,20 @@ class PersistentFrame(wx.Frame):
               'Question', wx.YES_NO | wx.NO_DEFAULT | wx.ICON_QUESTION)
         response = dlg.ShowModal()
         if response == wx.ID_YES:
-            maximized = self.IsMaximized()
-            #We want the pos and size of the unmaximized window
-            self.Maximize(False)
-            fpos = self.GetPosition()
-            fsize = self.GetSize()
-            self.options.SetVariables(width=fsize[0], height=fsize[1],
-                    x=fpos[0], y=fpos[1], maximized=int(maximized))
-            self.options.UpdateConfig()
-
+            try:
+                maximized = self.IsMaximized()
+                #We want the pos and size of the unmaximized window
+                self.Maximize(False)
+                fpos = self.GetPosition()
+                fsize = self.GetSize()
+                self.options.SetVariables(width=fsize[0], height=fsize[1],
+                        x=fpos[0], y=fpos[1], maximized=int(maximized))
+                self.options.UpdateConfig()
+            except Exception as e:
+                print(f"An unexpected error occurred: {e}")
+        
             self.Destroy()
+
 #        evt.Skip()
 
 #----------------------------------------------------------------------------
@@ -289,13 +293,14 @@ class PhysiologyFrame(PersistentFrame):
 
         self.__nb = PhysiologyNotebook(self)
 
-        # self.help = wx.html.HtmlHelpController(style=
-        #         wx.html.HF_CONTENTS |
-        #         wx.html.HF_PRINT |
-        #         wx.html.HF_MERGE_BOOKS
-        #         )
+        self.help = wx.html.HtmlHelpController(style=
+                wx.html.HF_CONTENTS |
+                wx.html.HF_PRINT |
+                wx.html.HF_MERGE_BOOKS
+                )
         # self.help.AddBook('help/help.chm')
         self.helpPath = os.path.join(os.path.dirname(__file__), 'help', 'help.chm')
+        # self.help.AddBook(self.helpPath)
 
         self.foptions = DefaultValueHolder("PhysiologyNotebook", "file")
         self.foptions.SetVariables(startdir=".")
@@ -322,8 +327,8 @@ class PhysiologyFrame(PersistentFrame):
         self.Show()
         
     def OnDisplayHelp(self, evt):
-        # self.help.DisplayContents()
-        os.startfile(self.helpPath)
+        self.help.DisplayContents()
+        # os.startfile(self.helpPath)
 
     def OnCloseTab(self, evt):
         self.__nb.DeletePage(self.__nb.GetSelection())

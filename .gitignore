@@ -3,3 +3,6 @@ dist
 __pycache__
 /Installer/Output
 /Source/kpy/kpy.egg-info
+.DS_Store
+.eggs
+/.spyproject/config/backups
