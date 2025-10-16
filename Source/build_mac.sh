@@ -4,7 +4,7 @@ NAME="EPL ABR Analysis"
 APPNAME="$NAME.app"
 VER="1.11"
 
-if [ "$1" != "-package" ]; then
+if [[ "$1" != "-package" && "$1" != "-dmg" ]]; then
     echo "Building app..."
 #    pythonw setup.py py2app -S
     pyinstaller --noconfirm notebook_mac.spec
@@ -25,20 +25,29 @@ if [ "$1" == "-build" ]; then
     exit 1
 fi
 
-echo "Building packages..."
-echo "Copying app to tmp..."
-#cp -r "dist/$APPNAME" /tmp/PkgRoot/Applications/EPL
+if [ "$1" != "-dmg" ]; then
+    echo "Building packages..."
+    echo "Copying app to tmp..."
+    ditto "dist/$APPNAME" "/tmp/PkgRoot/Applications/EPL/$APPNAME"
+    
+    echo "Building package installer..."
+    od=${PWD}
+    cd /tmp
+    pkgbuild --root PkgRoot "$NAME $VER.pkg"
+    cd "$od"
+fi
 
-echo "Building package installer..."
-#od=${PWD}
-#cd /tmp
-#pkgbuild --root PkgRoot "$NAME $VER.pkg"
-#cd "$od"
-
-echo "Rename dist folder..."
-mv dist "$NAME $VER"
-
-echo "Create dmg..."
-hdiutil create -volname "$NAME $VER" -srcfolder "$NAME $VER" -ov -format UDZO "$NAME $VER.dmg"  
+if [ "$1" != "-package" ]; then   
+    echo "Remove folder"
+    cd dist
+    rm -r "$NAME"
+    cd ..
+    
+    echo "Rename dist folder..."
+    mv dist "$NAME $VER"
+    
+    echo "Create dmg..."
+    hdiutil create -volname "$NAME $VER" -srcfolder "$NAME $VER" -ov -format UDZO "$NAME $VER.dmg"  
+fi
 
 echo "Done."

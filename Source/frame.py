@@ -4,6 +4,7 @@ import wx, wx.aui, wx.adv
 import wx.lib.filebrowsebutton as filebrowse
 #import wx.lib.pubsub as pubsub
 import wx.html
+import webbrowser
 
 from control import MatplotlibPanel, LazyTree, MPLAudiogram
 from AudiogramPresenter import AudiogramPresenter
@@ -293,13 +294,14 @@ class PhysiologyFrame(PersistentFrame):
 
         self.__nb = PhysiologyNotebook(self)
 
-        self.help = wx.html.HtmlHelpController(style=
-                wx.html.HF_CONTENTS |
-                wx.html.HF_PRINT |
-                wx.html.HF_MERGE_BOOKS
-                )
+        # self.help = wx.html.HtmlHelpController(style=
+        #         wx.html.HF_CONTENTS |
+        #         wx.html.HF_PRINT |
+        #         wx.html.HF_MERGE_BOOKS
+        #         )
         # self.help.AddBook('help/help.chm')
-        self.helpPath = os.path.join(os.path.dirname(__file__), 'help', 'help.chm')
+        # self.helpPath = os.path.join(os.path.dirname(__file__), 'help', 'ABR Peak Analysis.pdf')
+        self.helpPath = os.path.join(os.path.dirname(__file__), 'help', 'index.htm')
         # self.help.AddBook(self.helpPath)
 
         self.foptions = DefaultValueHolder("PhysiologyNotebook", "file")
@@ -327,8 +329,10 @@ class PhysiologyFrame(PersistentFrame):
         self.Show()
         
     def OnDisplayHelp(self, evt):
-        self.help.DisplayContents()
+        # self.help.DisplayContents()
         # os.startfile(self.helpPath)
+        file_url = f"file://{self.helpPath}"
+        webbrowser.open(file_url)
 
     def OnCloseTab(self, evt):
         self.__nb.DeletePage(self.__nb.GetSelection())
