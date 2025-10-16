@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html id="hs-topic-p">
+<head>
+<title>Overview</title>
+<meta charset="windows-1252" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="generator" content="HelpSmith 9.9.1 (Build 24.1211)" />
+<link type="text/css" rel="stylesheet" href="../css/topics/style.css" />
+<script type="text/javascript" src="../js/jquery-3.7.1.min.js"></script>
+<style type="text/css" media="screen">
+html {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+}
+</style>
+<script type="text/javascript" src="../js/settings.js?ed92d5a1"></script>
+<script type="text/javascript" src="../js/core.min.js?b628a3f8"></script>
+<script type="text/javascript" src="../js/topic.min.js?b628a3f8"></script>
+<script type="text/javascript">
+	var topicContext = 20;
+</script>
+<!-- Web Help Topic -->
+</head>
+<body class="page0">
+<div>
+  <table class="align-c tbl0">
+    <tr class="row0">
+      <td class="cell0">
+        <p>&nbsp;</p>
+      </td>
+      <td class="cell1">
+        <div>
+          <table class="align-c tbl1">
+            <tr class="row0">
+              <td class="cell0">
+                <p>&nbsp;</p>
+              </td>
+              <td class="cell1">
+                <div>
+                  <table class="align-c tbl2">
+                    <tr class="row0">
+                      <td class="cell0">
+                        <p class="ps0"><span class="ts0">Navigation: &lt;Root level&gt;</span></p>
+                        <h1 class="hd0"><span class="ts1">Overview</span></h1>
+                      </td>
+                      <td class="cell1">
+                        <p class="ps1"><img width="32" height="32" alt="" src="images/navigation%20links/previous%20disabled%20bluetriangles32.png" /><span class="ts0">&nbsp;</span><a href="algorithm.htm" title="The Algorithm"><img width="32" height="32" alt="" src="images/navigation%20links/next%20bluetriangles32.png" /></a></p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </td>
+              <td class="cell0">
+                <p>&nbsp;</p>
+              </td>
+            </tr>
+            <tr class="row0">
+              <td class="cell0">
+                <p>&nbsp;</p>
+              </td>
+              <td class="cell2">
+                <p class="ps2"><span class="ts2">&nbsp;</span></p>
+                <p class="ps3"><img width="792" height="199" alt="" src="images/splash.png" /></p>
+                <h1 class="hd1"><span class="ts1">Introduction</span></h1>
+                <p class="ps4"><span class="ts3">This program is designed to facilitate the identification of threshold, P1-5 and N1-5 in an ABR waveform series and export this data. The default input/output formats used by the program are designed to work with the custom ABR file format used by the Eaton Peabody Laboratories. It is relatively straightforward to write your own import and export module if needed. Refer to the </span><span class="ts4">peakio.py</span><span class="ts3">&nbsp;file for documentation of what is required. </span></p>
+                <h1 class="hd1"><span class="ts1">Loading Data</span></h1>
+                <p><span class="ts5">Data can be loaded by opening a file directly, dragging it from the sidebar, or dragging its icon from the desktop. If you want to invert the waveform polarity, hold down control while dragging the file. </span></p>
+                <h1 class="hd1"><span class="ts1">Analysis</span></h1>
+                <p><span class="ts5">On load each waveform is bandpass filtered from 200 to 10,000 Hz to remove baseline shift as well as high frequency noise that interferes with the peak detection algorithm. To minimize phase shift, a first-order Butterworth filter is used to forward and reverse filter the waveform. An initial estimate of P1-5 is computed and presented for correction. It is recommended that you correct the location of P1-5 to your satisfaction before computing N1-5 as the algorithm relies on knowledge of P1-5 to produce the best possible estimate for N1-5. Even if you don't use this program to save threshold, it is important to specify it so that sub-threshold data is marked appropriately in the output file. </span></p>
+                <h1 class="hd1"><span class="ts1">Saving</span></h1>
+                <p><span class="ts5">Aside from bandpass filtering the raw data provided by the import module, no other pre or post-processing is done on the data. Current amplitude and latency of each point is saved, however, if the point is subthreshold (or if no threshold is provided), the latency is reported as a negative number. </span></p>
+                <p class="ps2"><span class="ts2">&nbsp;</span></p>
+              </td>
+              <td class="cell0">
+                <p>&nbsp;</p>
+              </td>
+            </tr>
+            <tr class="row0">
+              <td class="cell3">
+                <p>&nbsp;</p>
+              </td>
+              <td class="cell4">
+                <p class="ps5"><span class="ts6">Copyright &copy; 2025 Eaton-Peabody Laboratories</span></p>
+              </td>
+              <td class="cell5">
+                <p>&nbsp;</p>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </td>
+      <td class="cell0">
+        <p>&nbsp;</p>
+      </td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>

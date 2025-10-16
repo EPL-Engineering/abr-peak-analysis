@@ -1,0 +1,349 @@
+﻿h1 {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 18pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+h2 {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 16pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+h3 {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 14pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+h4 {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+h5 {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 10pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+h6 {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 8pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+p {
+  margin: 0;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+  text-indent: 0;
+  text-align: left;
+  line-height: normal;
+  font-family: 'Times New Roman';
+  font-size: 12pt;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+}
+map > area {
+  outline: none;
+}
+table.align-c {
+  margin: 0 auto;
+}
+table.align-r {
+  margin: 0 0 0 auto;
+}
+img {
+  border: none;
+}
+.float-pos-l {
+  float: left;
+}
+.float-pos-r {
+  float: right;
+}
+.hr-wrapper {
+  display: flex;
+}
+pre {
+  margin: 0;
+}
+a[name],a[id] {
+  vertical-align: top;
+}
+@media screen {
+  .nsa-wrapper {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}
+#content-box {
+  box-sizing: border-box;
+  min-height: 100%;
+}
+#nsa-box {
+  flex-shrink: 0;
+}
+@media screen {
+  #sa-box {
+    overflow: auto;
+    flex-grow: 1;
+  }
+}
+.page0 {
+  padding: 12px 0;
+  background-color: #f0f3f7;
+}
+.ts0 {
+  font-family: Verdana;
+  color: Black;
+}
+.ts1 {
+  font-family: Tahoma;
+  font-size: 16pt;
+  font-weight: bold;
+}
+.ts2 {
+  font-family: Tahoma;
+}
+.ts3 {
+  font-family: Tahoma;
+  font-size: 12pt;
+}
+.ts4 {
+  font-family: 'Courier New';
+  background-color: #d6d4ca;
+}
+.ts5 {
+  font-family: Tahoma;
+}
+.ts6 {
+  font-family: Verdana;
+}
+.ts7 {
+  font-family: Tahoma;
+  font-size: 13pt;
+  font-weight: bold;
+}
+.ts8 {
+  font-family: Tahoma;
+  font-weight: bold;
+}
+.ts9 {
+  font-family: Tahoma;
+  font-style: italic;
+}
+.hd0 {
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 5px;
+  font-size: 12pt;
+}
+.hd1 {
+  padding-top: 21.4666666666667px;
+  padding-bottom: 21.4666666666667px;
+  font-size: 12pt;
+}
+.hd2 {
+  padding-bottom: 16px;
+  font-size: 12pt;
+}
+.hd3 {
+  font-size: 12pt;
+}
+.ps0 {
+  padding-top: 2px;
+  padding-left: 5px;
+  font-size: 8pt;
+}
+.ps1 {
+  padding-right: 5px;
+  text-align: right;
+  font-size: 8pt;
+}
+.ps2 {
+  font-size: 4pt;
+}
+.ps3 {
+  padding-top: 21.4666666666667px;
+  padding-bottom: 21.4666666666667px;
+}
+.ps4 {
+  font-size: 11pt;
+}
+.ps5 {
+  font-size: 8pt;
+}
+.ps6 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+.ps7 {
+  padding-bottom: 16px;
+}
+.ps8 {
+  padding-left: 0.5in;
+  text-indent: -0.251968503937008in;
+}
+.ps9 {
+  padding-bottom: 16px;
+  padding-left: 0.5in;
+  text-indent: -0.251968503937008in;
+}
+.tbl0 {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: none;
+}
+.tbl0 > tbody > tr.row0 {
+  border-style: none;
+}
+.tbl0 > tbody > tr > td.cell0 {
+  width: 15px;
+  vertical-align: top;
+  border-style: none;
+}
+.tbl0 > tbody > tr > td.cell1 {
+  vertical-align: top;
+  border-style: none;
+}
+.tbl1 {
+  width: 100%;
+  border-collapse: collapse;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #bdcbdb;
+}
+.tbl1 > tbody > tr.row0 {
+  border-style: none;
+}
+.tbl1 > tbody > tr > td.cell0 {
+  width: 6px;
+  vertical-align: top;
+  border-style: none;
+  background-color: White;
+}
+.tbl1 > tbody > tr > td.cell1 {
+  vertical-align: top;
+  border-style: none;
+}
+.tbl1 > tbody > tr > td.cell2 {
+  vertical-align: top;
+  border-style: none;
+  background-color: White;
+}
+.tbl1 > tbody > tr > td.cell3 {
+  width: 6px;
+  height: 22px;
+  vertical-align: top;
+  border-style: none;
+  background-color: #c5dbef;
+}
+.tbl1 > tbody > tr > td.cell4 {
+  vertical-align: middle;
+  border-style: none;
+  background-color: #c5dbef;
+}
+.tbl1 > tbody > tr > td.cell5 {
+  width: 6px;
+  vertical-align: top;
+  border-style: none;
+  background-color: #c5dbef;
+}
+.tbl2 {
+  width: 100%;
+  border-collapse: collapse;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: solid;
+  border-left-style: none;
+  border-bottom-width: 3px;
+  border-bottom-color: #e6e6e6;
+}
+.tbl2 > tbody > tr.row0 {
+  border-style: none;
+}
+.tbl2 > tbody > tr > td.cell0 {
+  vertical-align: top;
+  border-style: none;
+  background-color: #e4eef6;
+}
+.tbl2 > tbody > tr > td.cell1 {
+  width: 100px;
+  vertical-align: middle;
+  border-style: none;
+  background-color: #e4eef6;
+}
+.hs-mobile img.hs-fullwidth-m {
+  width: 100%;
+  height: auto;
+  float: none;
+}
